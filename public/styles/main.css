@@ -1,5 +1,5 @@
 body {
-    background-color: #0097D7;
+    background-color: #6f9e7b;
 }
 
 .book-tile {
@@ -18,14 +18,15 @@ body {
     font-size: 10px;
 }
 
-.button {
+/* .button {
     border-radius: 100%;
     background-color: black;
     height: 50px;
-}
+} */
 
 .edit-icons {
     height: 24px;
+    cursor: pointer;
     transition: all 0.25s ease-in-out;
 }
 

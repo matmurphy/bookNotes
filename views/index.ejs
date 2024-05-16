@@ -30,13 +30,27 @@
                     <% }; %>
                 </h6>
                 <p class="col-10 mt-1 mb-2 description"><%=review_description%></p>
-                <div class="col-12 d-flex flex-row mt-auto mb-5 justify-content-between">
+                <div class="col-12 d-flex flex-row mb-5 mt-3 justify-content-center">
+                    <% if (currentReviewIndex != 0  || currentReviewIndex != "") { %>
                     <div class="col-2 backwards button mx-3 d-flex justify-content-center align-items-center">
-                        <img src="./assets/arrow-left.svg"/>
+                        <form class="last-review" action="/last" method="post">
+                            <input type="hidden" name="currentReviewIndex" value="<%= currentReviewIndex %>">
+                            <button class="btn btn-secondary" type="submit">
+                                <img src="./assets/arrow-left.svg"/>
+                            </button>
+                        </form>
                     </div>
-                    <div class="col-2 forwards button mx-3 d-flex justify-content-center align-items-center">
-                        <img src="./assets/arrow-right.svg"/>
-                    </div>
+                    <% } %>
+                    <% if (currentReviewIndex <  lastReviewIndex) { %>
+                        <div class="col-2 forwards button mx-3 d-flex justify-content-center align-items-center">
+                            <form class="last-review" action="/next" method="post">
+                                <input type="hidden" name="currentReviewIndex" value="<%= currentReviewIndex %>">
+                                <button class="btn btn-secondary" type="submit">
+                                    <img src="./assets/arrow-right.svg"/>
+                                </button>
+                            </form>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>

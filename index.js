@@ -16,17 +16,48 @@ app.use(express.static("public"));
 
 db.connect();
 
+let nextReviewIndex;
+
+let currentReviewIndex;
+let first_name;
+let last_name;
+let isbn_api;
+let book_title;
+let rating;
+let rating_description;
+let lastReviewIndex; 
+
 const userIndex = 1;
+nextReviewIndex = 0;
+
+async function getBookResults(currentReviewIndex = 0) {
+    
+    try {
+
+        //query all three tables joined together
+        const result = await db.query("SELECT first_name, last_name, title, isbn, rating, review_description FROM users JOIN books ON users.id = books.user_id JOIN reviews ON reviews.book_id = books.id ORDER BY books.id");
+
+        //saved required results into variables
+        first_name = result.rows[currentReviewIndex].first_name;
+        last_name = result.rows[currentReviewIndex].last_name;
+        isbn_api = "https://covers.openlibrary.org/b/isbn/" + result.rows[currentReviewIndex].isbn + "-L.jpg";
+        book_title = result.rows[currentReviewIndex].title;
+        rating = result.rows[currentReviewIndex].rating;
+        rating_description = result.rows[currentReviewIndex].review_description;
+        currentReviewIndex = currentReviewIndex;
+        lastReviewIndex = result.rowCount - 1;
+
+
+    } catch (err) {
+        console.log(err);
+    }
+
+};
+
 
 app.get("/", async (req, res) => {
-    const result = await db.query("SELECT first_name, last_name, title, isbn, rating, review_description FROM users JOIN books ON users.id = books.user_id JOIN reviews ON reviews.book_id = books.id");
-    
-    const first_name = result.rows[0].first_name;
-    const last_name = result.rows[0].last_name;
-    const isbn_api = "https://covers.openlibrary.org/b/isbn/" + result.rows[0].isbn + "-L.jpg";
-    const book_title = result.rows[0].title;
-    const rating = result.rows[0].rating;
-    const rating_description = result.rows[0].review_description;
+
+    await getBookResults(nextReviewIndex);
 
     res.render("index.ejs", { 
         first_name: first_name, 
@@ -35,8 +66,26 @@ app.get("/", async (req, res) => {
         book_title: book_title,
         rating: rating,
         review_description: rating_description,
+        currentReviewIndex: nextReviewIndex,
+        lastReviewIndex: lastReviewIndex,
     });
 });
+
+app.post("/last", async (req, res) => {
+    nextReviewIndex = parseInt(req.body.currentReviewIndex) - 1;
+    console.log(nextReviewIndex);
+
+    await getBookResults(nextReviewIndex)
+    res.redirect("/");
+});
+
+app.post("/next", async (req, res) => {
+    nextReviewIndex = parseInt(req.body.currentReviewIndex) + 1;
+
+    await getBookResults(nextReviewIndex)
+    res.redirect("/");
+});
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
