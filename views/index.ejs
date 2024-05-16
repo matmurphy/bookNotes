@@ -12,12 +12,32 @@
     <div class="container-fluid d-flex flex-column">
         <h6 class="col-10 mt-3 mx-3">Filter by</h6>
         <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-            <h1>Matt Murphy's</h1>
+            <h1><%=first_name + " " + last_name%>'s</h1>
             <h1>Favorite Books</h1>
         </div>
         <div class="col-12 d-flex flex-column justify-content-center align-items-center mt-3">
-            <div class="col-10 book-tile d-flex flex-column">
-            
+            <div class="col-10 book-tile d-flex flex-column align-items-center">
+                <div class="col-12 align-self-end d-flex flex-row justify-content-between">
+                    <img class="col-2 mt-3 align-self-end edit-icons" src="./assets/pencil-square.svg"/>
+                    <img class="col-2 mt-3 align-self-end edit-icons" src="./assets/pen.svg"/>
+                    <img class="col-2 mt-3 align-self-end edit-icons" src="./assets/trash3.svg"/>
+                </div>
+                <img class="col-8 mt-3 book-image" src="<%=isbn_api%>">
+                <h6 class="mt-2"><%=book_title%></h6>
+                <h6 class="col-12 mt-1 mb-1 d-flex flex-row justify-content-center">Rating: 
+                    <% for(i=0; i<rating; i++) { %>
+                        &#11088
+                    <% }; %>
+                </h6>
+                <p class="col-10 mt-1 mb-2 description"><%=review_description%></p>
+                <div class="col-12 d-flex flex-row mt-auto mb-5 justify-content-between">
+                    <div class="col-2 backwards button mx-3 d-flex justify-content-center align-items-center">
+                        <img src="./assets/arrow-left.svg"/>
+                    </div>
+                    <div class="col-2 forwards button mx-3 d-flex justify-content-center align-items-center">
+                        <img src="./assets/arrow-right.svg"/>
+                    </div>
+                </div>
             </div>
         </div>
         
