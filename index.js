@@ -73,7 +73,6 @@ app.get("/", async (req, res) => {
 
 app.post("/last", async (req, res) => {
     nextReviewIndex = parseInt(req.body.currentReviewIndex) - 1;
-    console.log(nextReviewIndex);
 
     await getBookResults(nextReviewIndex)
     res.redirect("/");

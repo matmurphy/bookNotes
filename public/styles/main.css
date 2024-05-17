@@ -2,27 +2,43 @@ body {
     background-color: #6f9e7b;
 }
 
+.nav {
+    height: 6vh;
+}
+
+.nav-header {
+    font-size: 18px;
+}
+
+.container-fluid {
+    height: 85vh;
+}
+
 .book-tile {
     background-color: #D9D9D9;
-    height: 500px;
+    height: 83vh;
     border-radius: 20px;
     filter: drop-shadow(5px 0px 10px black)
 }
 
 .book-image {
-    height: 250px;
+    height: 40vh;
     background-color: black;
+    border-radius: 20px;
+}
+
+.book-title {
+    height: 5vh;
+}
+
+.book-rating {
+    height: 5vh;
 }
 
 .description {
-    font-size: 10px;
+    font-size: 14px;
+    height: 18vh;
 }
-
-/* .button {
-    border-radius: 100%;
-    background-color: black;
-    height: 50px;
-} */
 
 .edit-icons {
     height: 24px;
