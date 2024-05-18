@@ -16,6 +16,8 @@ app.use(express.static("public"));
 
 db.connect();
 
+let output;
+
 let nextReviewIndex;
 
 let currentReviewIndex;
@@ -36,16 +38,17 @@ async function getBookResults(currentReviewIndex = 0) {
 
         //query all three tables joined together
         const result = await db.query("SELECT first_name, last_name, title, isbn, rating, review_description FROM users JOIN books ON users.id = books.user_id JOIN reviews ON reviews.book_id = books.id ORDER BY books.id");
-
+        
+        output = result.rows;
         //saved required results into variables
         first_name = result.rows[currentReviewIndex].first_name;
-        last_name = result.rows[currentReviewIndex].last_name;
-        isbn_api = "https://covers.openlibrary.org/b/isbn/" + result.rows[currentReviewIndex].isbn + "-L.jpg";
-        book_title = result.rows[currentReviewIndex].title;
-        rating = result.rows[currentReviewIndex].rating;
-        rating_description = result.rows[currentReviewIndex].review_description;
-        currentReviewIndex = currentReviewIndex;
-        lastReviewIndex = result.rowCount - 1;
+        // // last_name = result.rows[currentReviewIndex].last_name;
+        // isbn_api = "https://covers.openlibrary.org/b/isbn/" + result.rows[currentReviewIndex].isbn + "-L.jpg";
+        // book_title = result.rows[currentReviewIndex].title;
+        // rating = result.rows[currentReviewIndex].rating;
+        // rating_description = result.rows[currentReviewIndex].review_description;
+        // currentReviewIndex = currentReviewIndex;
+        // lastReviewIndex = result.rowCount - 1;
 
 
     } catch (err) {
@@ -59,15 +62,18 @@ app.get("/", async (req, res) => {
 
     await getBookResults(nextReviewIndex);
 
+    console.log(output);
+
     res.render("index.ejs", { 
         first_name: first_name, 
-        last_name: last_name,
-        isbn_api: isbn_api,
-        book_title: book_title,
-        rating: rating,
-        review_description: rating_description,
-        currentReviewIndex: nextReviewIndex,
-        lastReviewIndex: lastReviewIndex,
+        reviews: output,
+        // last_name: last_name,
+        // isbn_api: isbn_api,
+        // book_title: book_title,
+        // rating: rating,
+        // review_description: rating_description,
+        // currentReviewIndex: nextReviewIndex,
+        // lastReviewIndex: lastReviewIndex,
     });
 });
 

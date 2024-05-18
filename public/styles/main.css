@@ -1,52 +1,122 @@
 body {
-    background-color: #6f9e7b;
+    background-color: #ADE5C1;
 }
 
 .nav {
-    height: 6vh;
+    height: 60px;
 }
 
-.nav-header {
-    font-size: 18px;
+.book-owner {
+    height: 50px;
 }
 
-.container-fluid {
-    height: 85vh;
+.header-icons {
+    height: 36px;
+    transition: all 0.25s ease-in-out;
 }
 
-.book-tile {
-    background-color: #D9D9D9;
-    height: 83vh;
-    border-radius: 20px;
-    filter: drop-shadow(5px 0px 10px black)
+.header-icons:hover {
+    height: 40px;
+    width: 40px;
+    transition: all 0.25s ease-in-out;
+}
+
+.book-review {
+    background-color: #3F5A49;
+    height: 233px;
 }
 
 .book-image {
-    height: 40vh;
+    height: 90%;
     background-color: black;
     border-radius: 20px;
 }
 
 .book-title {
-    height: 5vh;
+    color: white;
+    font-size: 14px;
 }
 
 .book-rating {
-    height: 5vh;
+    color: white;
+    font-size: 13px;
 }
 
-.description {
-    font-size: 14px;
-    height: 18vh;
+.book-description {
+    color: white;
+    font-size: 10px;
 }
 
 .edit-icons {
     height: 24px;
-    cursor: pointer;
+    width: 24px;
+    fill: white;
     transition: all 0.25s ease-in-out;
 }
 
 .edit-icons:hover {
-    height: 30px;
+    height: 28px;
+    width: 28px;
     transition: all 0.25s ease-in-out;
+}
+
+
+@media screen and (min-width: 770px) {
+    .header-icons {
+        height: 70px;
+        transition: all 0.25s ease-in-out;
+    }
+    
+    .header-icons:hover {
+        height: 80px;
+        width: 80px;
+        transition: all 0.25s ease-in-out;
+    } 
+
+    .book-owner {
+        height: 154px;
+    }
+
+    .book-owner h4{
+        font-size: 64px;
+    }
+
+    .book-review {
+        height: 900px;
+    }
+
+    .book-image {
+        height: 90%;
+        background-color: black;
+        border-radius: 20px;
+    }
+    
+    .book-title {
+        color: white;
+        font-size: 70px;
+    }
+    
+    .book-rating {
+        color: white;
+        font-size: 65px;
+    }
+    
+    .book-description {
+        color: white;
+        font-size: 30px;
+    }
+    
+    .edit-icons {
+        height: 24px;
+        width: 24px;
+        fill: white;
+        transition: all 0.25s ease-in-out;
+    }
+    
+    .edit-icons:hover {
+        height: 28px;
+        width: 28px;
+        transition: all 0.25s ease-in-out;
+    }
+    
 }
