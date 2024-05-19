@@ -77,6 +77,14 @@ app.get("/", async (req, res) => {
     });
 });
 
+app.get("/select-user", async (req, res) => {
+    const result = await db.query("SELECT first_name, last_name FROM users")
+
+    res.render("users.ejs", {
+        users: result.rows,
+    })
+});
+
 app.post("/last", async (req, res) => {
     nextReviewIndex = parseInt(req.body.currentReviewIndex) - 1;
 

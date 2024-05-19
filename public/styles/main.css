@@ -3,27 +3,66 @@ body {
 }
 
 .nav {
-    height: 60px;
+    height: 8vh;
+}
+
+.nav-icons {
+    height: 5vh;
+}
+
+.nav-subheader {
+    height: 3vh;
 }
 
 .book-owner {
     height: 50px;
 }
 
+.book-owner h4 {
+    font-size: 20px;
+}
+
 .header-icons {
-    height: 36px;
+    cursor: pointer;
+    width: 24px;
+    width: 24px;
     transition: all 0.25s ease-in-out;
 }
 
 .header-icons:hover {
-    height: 40px;
-    width: 40px;
+    height: 24px;
+    width: 24px;
+    transition: all 0.25s ease-in-out;
+}
+
+.icon-subheader {
+    font-size: 10px;
+}
+
+.subheader-switch-user {
+    color: #ADE5C1;
+    transition: all 0.25s ease-in-out;
+}
+
+.subheader-new-review {
+    color: #ADE5C1;
+    transition: all 0.25s ease-in-out;
+}
+
+.icon-switch-user:hover + .subheader-switch-user {
+    color: black;
+    transition: all 0.25s ease-in-out;
+}
+
+.icon-new-review:hover + .subheader-new-review {
+    color: black;
     transition: all 0.25s ease-in-out;
 }
 
 .book-review {
     background-color: #3F5A49;
-    height: 233px;
+    height: 35vh;
+    min-width: 200px;
 }
 
 .book-image {
@@ -48,75 +87,113 @@ body {
 }
 
 .edit-icons {
-    height: 24px;
-    width: 24px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
     fill: white;
     transition: all 0.25s ease-in-out;
 }
 
 .edit-icons:hover {
-    height: 28px;
-    width: 28px;
+    height: 24px;
+    width: 24px;
     transition: all 0.25s ease-in-out;
 }
 
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 750px) {
     .header-icons {
-        height: 70px;
+        cursor: pointer;
+        width: 32px;
+        width: 32px;
         transition: all 0.25s ease-in-out;
     }
     
     .header-icons:hover {
-        height: 80px;
-        width: 80px;
+        height: 36px;
+        width: 36px;
         transition: all 0.25s ease-in-out;
-    } 
-
-    .book-owner {
-        height: 154px;
-    }
-
-    .book-owner h4{
-        font-size: 64px;
-    }
-
-    .book-review {
-        height: 900px;
-    }
-
-    .book-image {
-        height: 90%;
-        background-color: black;
-        border-radius: 20px;
     }
     
+    .icon-subheader {
+        font-size: 10px;
+    }
+
+    .book-owner h4 {
+        font-size: 30px;
+    }
+
     .book-title {
-        color: white;
-        font-size: 70px;
+        font-size: 26px;
     }
     
     .book-rating {
-        color: white;
-        font-size: 65px;
+        font-size: 15px;
     }
     
     .book-description {
-        color: white;
-        font-size: 30px;
+        font-size: 20px;
     }
     
     .edit-icons {
-        height: 24px;
-        width: 24px;
-        fill: white;
+        height: 25px;
+        width: 25px;
         transition: all 0.25s ease-in-out;
     }
     
     .edit-icons:hover {
-        height: 28px;
-        width: 28px;
+        height: 30px;
+        width: 30px;
+        transition: all 0.25s ease-in-out;
+    }
+
+    
+}
+
+@media screen and (min-width: 750px) {
+    .header-icons {
+        cursor: pointer;
+        width: 45px;
+        width: 45px;
         transition: all 0.25s ease-in-out;
     }
     
+    .header-icons:hover {
+        height: 50px;
+        width: 50px;
+        transition: all 0.25s ease-in-out;
+    }
+    
+    .icon-subheader {
+        font-size: 25px;
+    }
+
+    .book-owner h4 {
+        font-size: 50px;
+    }
+
+    .book-title {
+        font-size: 35px;
+    }
+    
+    .book-rating {
+        font-size: 33px;
+    }
+    
+    .book-description {
+        font-size: 29px;
+    }
+
+    .edit-icons {
+        cursor: pointer;
+        height: 35px;
+        width: 35px;
+        transition: all 0.25s ease-in-out;
+    }
+    
+    .edit-icons:hover {
+        height: 40px;
+        width: 40px;
+        transition: all 0.25s ease-in-out;
+    }
 }
