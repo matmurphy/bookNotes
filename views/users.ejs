@@ -9,14 +9,24 @@
 </head>
 <body>
 
-    <div class="container-fluid select-users">
+    <div class="container-fluid col-12 d-flex flex-column justify-content-center select-users">
+        <div class="col-11 col-md-10 col-lg-8 col-xl-6 d-flex justify-content-end">
+            <img class="add-user" src="./assets/person-plus.svg" />
+        </div>
+            
         <% if (locals.users) { %> 
             <% for (i=0; i<users.length; i++) { %>
-                <% console.log(users[i]) %>
-                <div class="col-10 d-flex flex-row user-profile" style="background-color: D9D9D9; height: 60px;">
-                    <div class="col-3 d-flex justify-content-center"></div>
-                    <div class="col-9 d-flex justify-content-start">
-                        <p><%=users[i].first_name%> <%=users[i].last_name%></div></p>
+                <div class="col-6 col-md-10 col-lg-8 col-xl-6 mx-auto d-flex justify-content-start align-items-center my-3 user-profile">
+                    <div class="col-1 d-flex justify-content-center align-items-center user-icon">
+                        <p class="mb-0">
+                            <%=users[i].first_name.substr(0,1)%>
+                        </p>
+                    </div>
+                    <div class="col-9 d-flex justify-content-start align-items-center h-100">
+                        <p class="mb-0 mx-5">
+                            <%=users[i].first_name%> <%=users[i].last_name%> 
+                        </p>
+                    </div>
                 </div>
 
             <% } %>

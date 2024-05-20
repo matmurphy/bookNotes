@@ -62,8 +62,6 @@ app.get("/", async (req, res) => {
 
     await getBookResults(nextReviewIndex);
 
-    console.log(output);
-
     res.render("index.ejs", { 
         first_name: first_name, 
         reviews: output,
